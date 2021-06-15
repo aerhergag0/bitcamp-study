@@ -8,6 +8,8 @@ class TESTTEST {
         a[0] = 100;
         a[1] = 101;
 
-        System.out.println(a[0]);
+        System.out.println(a);
+
+    
     }
 }

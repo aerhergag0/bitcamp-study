@@ -26,7 +26,11 @@ public class Exam0510 {
     int arr2[] = new int[5]; // OK! C-style.
 
     // 배열의 크기는 int 타입의 최대 값이다.
-    int[] arr3 = new int[2147483647];
+    // int[] arr3 = new int[2147483647]; = vm의 배열 크기 제한을 초과
+
+    //int[] arr3 = new int[2147483645]; //vm이 만들수 있는 최대배열 , 하지만 오류발생
+
+    //JVM이 OS로부터 허가받은 메모리크기를 벗어남
   }
 }
 
