@@ -31,6 +31,8 @@ public class Exam0510 {
     //int[] arr3 = new int[2147483645]; //vm이 만들수 있는 최대배열 , 하지만 오류발생
 
     //JVM이 OS로부터 허가받은 메모리크기를 벗어남
+
+    // -Xmx 
   }
 }
 

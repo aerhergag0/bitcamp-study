@@ -9,6 +9,8 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id 'java'
+    id 'eclipse'
 }
 
 repositories {
@@ -27,4 +29,16 @@ dependencies {
 application {
     // Define the main class for the application.
     mainClass = 'com.eomcs.App'
+}
+
+tasks.withType(JavaCompile) {
+    //$javac - encoding utf-8 ...
+    options.encoding = 'UTF-8';
+}
+
+// eclipse 플러그인의 .project 파일 생성 작업을 제어
+eclipse {
+    project {
+        name ="java-basic"
+    }
 }

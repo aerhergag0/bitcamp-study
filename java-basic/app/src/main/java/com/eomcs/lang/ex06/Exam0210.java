@@ -14,6 +14,9 @@ public class Exam0210 {
     System.out.print("지원 분야의 번호를 입력하세요? ");
     int no = keyScan.nextInt();
 
+    //커서를 대기 시키고 싶을때 nextInt()를 실행하라
+    // 사용자가 숫자를 입력하고 엔터를 칠 때 까지 기다린다.
+
     System.out.println("제출하실 서류는 다음과 같습니다.");
     if (no == 1) {
       System.out.println("정보처리자격증");
