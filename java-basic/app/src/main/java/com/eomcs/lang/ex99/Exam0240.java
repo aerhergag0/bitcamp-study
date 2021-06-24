@@ -1,11 +1,11 @@
-package com.eomcs.lang.ex99;
+80package com.eomcs.lang.ex99;
 
 //# 키보드 입력 받기 - 여러 종류의 데이터를 섞어 입력 받기
 //
 public class Exam0240 {
   public static void main(String[] args) { 
     java.util.Scanner keyboard = new java.util.Scanner(System.in);
-    
+
     System.out.print("나이? ");
     int age = keyboard.nextInt();
     // nextInt()는 한 개의 토큰을 읽은 후에 줄 바꿈 코드는 읽기 전 상태로 내비둔다.
@@ -17,9 +17,9 @@ public class Exam0240 {
 
     System.out.print("이름? ");
     String name = keyboard.nextLine();
-    
+
     keyboard.close();
-    
+
     System.out.printf("%d(%s)\n", age, name);
   }
 }
