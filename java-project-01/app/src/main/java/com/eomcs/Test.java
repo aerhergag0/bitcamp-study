@@ -1,22 +1,17 @@
 package com.eomcs;
 
+class Calculator1 {
+  static int result;
 
-
+  static void plus(int value) {
+    Calculator1.result += value;
+  }
+}
 public class Test {
-
-  class A {  }
-  class B {  }
-  class C {  }
-
   public static void main(String[] args) {
-    A r1;
-    B r2;
-    C r3;
-
-    r1 = new A();
-
-    r2 = new B();
-
-    r3 = new C();
+    Calculator1.plus(100);
+    Calculator1.plus(200);
+    Calculator1.plus(300);
+    System.out.println(Calculator1.result);
   }
 }

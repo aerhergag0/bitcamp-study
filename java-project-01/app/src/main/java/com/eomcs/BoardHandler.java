@@ -2,16 +2,44 @@ package com.eomcs;
 
 import java.util.Date;
 import java.util.Scanner;
-import com.eomcs.App.Board;
 
-public class BoardHandler {
+public class BoardHandler implements Handler {
 
+  static class Board {
+    String title;
+    String content;
+    String password;
+    int viewCount;
+    Date createdDate;
+  }
   static Scanner keyScan;
 
-  static void list() {
+  static ArrayList boardList = new ArrayList();
+
+  public void execute() {
+    loop: while (true) {
+      System.out.print("게시글 관리> ");
+      String command = keyScan.nextLine();
+
+      switch (command) {
+        case "list": BoardHandler.list(); break;
+        case "add": BoardHandler.add(); break;
+        case "update": BoardHandler.update(); break;
+        case "delete": BoardHandler.delete(); break;
+        case "view": BoardHandler.view(); break;
+        case "back":
+          break loop;
+        default:
+          System.out.println("지원하지 않는 명령입니다.");
+      }
+      System.out.println();
+    }
+  }
+
+  static void list(ArrayList that) {
     System.out.println("[게시글 목록]");
 
-    Object[] arr = ArrayList.toArray();
+    Object[] arr = ArrayList.toArray(that);
     int i = 0;
     for (Object item : arr) {
       Board board = (Board) item;
@@ -26,7 +54,7 @@ public class BoardHandler {
   static void add() {
     System.out.println("[게시글 등록]");
 
-    if (ArrayList.size == ArrayList.MAX_LENGTH) {
+    if (boardList.size == ArrayList.MAX_LENGTH) {
       System.out.println("더이상 게시글을 추가할 수 없습니다.");
       return;
     }
@@ -87,7 +115,7 @@ public class BoardHandler {
     System.out.print("번호? ");
     int index = Integer.parseInt(keyScan.nextLine());
 
-    if (index < 0 || index >= ArrayList.size) {
+    if (index < 0 || index >= boardList.size) {
       System.out.println("무효한 게시글 번호입니다.");
       return;
     }

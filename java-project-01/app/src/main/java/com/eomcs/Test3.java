@@ -1,6 +1,6 @@
 package com.eomcs;
 
-class Calculator2 {
+class Calculator3 {
   static int result;
 
   static void plus(Calculator2 c, int value) {
