@@ -28,6 +28,7 @@ public class Memo extends Frame implements WindowListener,ActionListener {
     this.add("Center", ta);
     this.add("South", pan); //pan=Panel판넬 
 
+
     //이벤트연결 리스너추가
     this.addWindowListener(this); //앞this  뒤this
     tf.addActionListener(this);
@@ -75,10 +76,18 @@ public class Memo extends Frame implements WindowListener,ActionListener {
     System.exit(1);
   }//end
 
+  public void bitCamp() {
+    // AAA ac = new AAA();
+    // WindowListener wl = new WindowListner();
+  }
+
 
   public static void main(String[] args) {
     Memo pad = new Memo();  //생성자호출
+    // AAA aa = null;   선언만
+    // AAA ac = new AAA();  에러발생
     //pad.windowClosing(null);//에러는 아님 단점
+    // WindowListener wl = new WindowListner();
   }//end
 
 }//class END

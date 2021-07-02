@@ -4,23 +4,15 @@ import java.util.Scanner;
 
 public class Work05Hotel {
   static Scanner sc = new Scanner(System.in);
-  static int checkFloor, checkRoom;
-  static String[][] checkName = new String[3][5];
-  static int[][] room = new int[3][5];
-
-  /*
-  public Work05Hotel() {}
-  public Work05Hotel(String name) {}
-  public Work05Hotel(String name,int year) {}
-   */
-
+  int checkFloor, checkRoom;
+  String[][] checkName = new String[3][5];
+  int[][] room = new int[3][5];
 
   public static void main(String[] args) {
 
     Work05Hotel ht = new Work05Hotel();
     ht.map();
     ht.process();
-
     sc.close();
   }
   public void checkIn() {
@@ -85,7 +77,19 @@ public class Work05Hotel {
   }
 
   public void list() {
+    System.out.println("\n[ list ]");
+    for(int i=0; i<3; i++) {
+      for(int j=0; j<5; j++) {
+        if(checkName[i][j] == null) {
+          System.out.print(" "+(i+1)+ "0"+(j+1)+"호"+"□\t"+"\t");
+        }
+        else {
+          System.out.print(" "+(i+1)+ "0"+(j+1)+"호"+"■\t"+checkName[i][j]+"\t");
+        }
 
+      }
+      System.out.println();
+    }
   }
 
   public void process() {
@@ -100,7 +104,7 @@ public class Work05Hotel {
         case 1: ht.checkIn(); break;
         case 2: ht.checkOut();break;
         case 3: ht.map(); break;
-        case 4: break;
+        case 4: ht.list();break;
         case 9: System.out.println("프로그램종료"); break loop;
         default :
           System.out.println("잘못 입력하였습니다.");
