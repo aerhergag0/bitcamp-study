@@ -19,6 +19,7 @@ public class Delete {
   boolean check;
 
   Banner banner = new Banner();
+  ShowTable showtable = new ShowTable();
 
   public void delete(String id) {
     try {
@@ -31,18 +32,7 @@ public class Delete {
       banner.printbanner1("일정삭제");
       msg = "select rownum, a.p_date, a.title, a.p_id from (select * from seet_"+id+" order by p_date) a";
       RS = ST.executeQuery(msg);
-      while (RS.next() == true) {
-        int rownum = RS.getInt("rownum");
-        java.util.Date p_date = RS.getDate("p_date");
-        String title = RS.getString("title");
-        String p_id = RS.getString("p_id");
-
-        System.out.printf("   번호\t %s\n   ", rownum);
-        System.out.printf("날짜 %s\n   ", p_date);
-        System.out.printf("제목 %s\n   ", title);
-        System.out.printf("코드 %s\n   ", p_id);
-        System.out.println();
-      }
+      showtable.showtableCode(id);
 
       //db_print("select to_char(rownum,'9999') as Numbers, to_char(a.p_date,'YY-MM-DD') as ScheduleDate, to_char(a.p_id,'9999') as CodeNum , a.title from (select * from seet_"+id+" order by p_date) a");
 

@@ -12,7 +12,7 @@ public class LoginFinish extends DB_Print{
   Edit edit = new Edit();
   Leave leave = new Leave();
   Manager manager = new Manager();
-  //.
+  Banner banner = new Banner();
 
 
   public void loginfinish() {
@@ -23,12 +23,13 @@ public class LoginFinish extends DB_Print{
       if (id.equals("admin")) { manager.manager(); break;}
 
       while (true) {
-        System.out.println("\n---------메뉴----------");
-        System.out.println("\n메뉴를 선택하여 주세요.");
+        banner.printbanner1("메뉴");
         System.out.println();
         //.
+        // 
         db_print("SELECT to_char(a.p_date,'YY-MM-DD') AS Schedule , to_char(COUNT(a.p_date),'999') AS DateCount FROM (SELECT * FROM seet_"+id+" order by p_date) a GROUP BY a.p_date");
 
+        System.out.println("\n메뉴를 선택하여 주세요.");
         System.out.println("\n1.개인일정\n2.완료일정\n3.공유일정\n4.회원정보수정\n5.회원탈퇴\n0.로그아웃\n");
         System.out.print("메뉴 입력 : ");
         String num = keyScan.nextLine();

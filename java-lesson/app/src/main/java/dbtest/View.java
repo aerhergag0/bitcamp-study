@@ -15,6 +15,7 @@ public class View {
     Delete delete = new Delete();
     Finish finish = new Finish();
     Share share = new Share();
+    ShowTable showtable = new ShowTable();
 
     System.out.println("\n-------개인일정--------");
 
@@ -24,20 +25,7 @@ public class View {
       Statement ST = CN.createStatement();
       ResultSet RS;
 
-      System.out.println("번호\t날짜\t\t제목\t\t내용");
-      String msg = "select rownum, a.p_date, a.title, a.contents from (select * from seet_"+id+" order by p_date) a";
-      RS = ST.executeQuery(msg);
-      while (RS.next() == true) {
-        int rownum = RS.getInt("rownum");
-        java.util.Date p_date = RS.getDate("p_date");
-        String title = RS.getString("title");
-        String contents = RS.getString("contents");
-
-        System.out.printf("%s\t", rownum);
-        System.out.printf("%s\t",p_date);
-        System.out.printf("%s\t\t",title);
-        System.out.printf("%s\t\n",contents);
-      }
+      showtable.showtableContents(id);
 
       while (true) {
         System.out.println("\n메뉴를 선택하여 주세요.");
