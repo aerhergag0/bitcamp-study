@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 public class Find {
 
+  Banner banner = new Banner();
+
   Scanner keyScan = new Scanner(System.in);
   ResultSet RS;
   String msg;
@@ -24,7 +26,7 @@ public class Find {
       Connection CN = boot.boot();
       Statement ST = CN.createStatement();
 
-      System.out.println("\n----아이디/비밀번호 찾기-----");
+      banner.printbanner1("아이디/비밀번호 찾기");
       while (true) {
         System.out.println("\n찾으실 항목을 선택하여 주세요.");
         System.out.println("1. 아이디   2. 비밀번호   0. 뒤로가기");

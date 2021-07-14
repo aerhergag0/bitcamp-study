@@ -7,6 +7,8 @@ import java.util.regex.Pattern;
 
 public class Insert {
 
+  Banner banner = new Banner();
+
   Scanner keyScan = new Scanner(System.in);
   String msg;
   String p_date;
@@ -21,7 +23,7 @@ public class Insert {
       Statement ST = CN.createStatement();
 
       // 날짜 입력
-      System.out.println("\n------일정 추가------");
+      banner.printbanner2("일정 추가");
       System.out.println("\n날짜를 입력해주세요.");
       while (true) {
         System.out.print("날짜 입력(YYYY-MM-DD) : ");

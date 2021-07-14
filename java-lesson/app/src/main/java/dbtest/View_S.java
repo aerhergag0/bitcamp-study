@@ -1,12 +1,16 @@
 package dbtest;
 
-import java.sql.*;
-import java.util.*;
-import java.util.Date;
-import java.util.regex.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+import java.util.regex.Pattern;
 
 //완료일정을 누르면 노출시켜주고 삭제기능을 누르면 번호를 받아 특정데이터를 삭제할수있음
 public class View_S {
+  Banner banner = new Banner();
+  ShowTable showtable = new ShowTable();
+
   Scanner sc = new Scanner(System.in);
   ResultSet rs = null;
   int i = 0;
@@ -77,29 +81,10 @@ public class View_S {
   }
 
   public void s_view(String id) {
-    System.out.println("공유 일정 목록을 출력합니다.");
-    try{
-      Boot boot = new Boot();
-      Connection CN = boot.boot();
-      Statement ST = CN.createStatement();
-      ST = CN.createStatement();
-      String msg ="select * from s_seet_"+id+" ";
-      rs = ST.executeQuery(msg);
-      while(rs.next() == true) {
-        Date a = rs.getDate("s_date");//날짜
-        String b = rs.getString("title");//제목
-        String c = rs.getString("contents");//내용
-        String d = rs.getString("s_id");//삭제코드
-        System.out.print("날짜  :   ");
-        System.out.printf(String.format("%5s",a));
-        System.out.print("   일정 title  :");
-        System.out.printf(String.format("%5s",b));
-        System.out.print("   일정 contents  :");
-        System.out.printf(String.format("%5s",c));
-        System.out.print("   삭제 코드  :");
-        System.out.printf(String.format("%5s",d));
-        System.out.println();
-      } 
+    try {
+      System.out.println("공유 일정 목록을 출력합니다.");
+      banner.printbanner2("공유 일정 목록");
+      showtable.showFtable(id);
 
     }catch(Exception e) {System.out.println("공유일정이 없습니다.");}
   }

@@ -8,6 +8,9 @@ import java.util.regex.Pattern;
 
 public class Share {
 
+  Banner banner = new Banner();
+  ShowTable showtable = new ShowTable();
+
   Scanner keyScan = new Scanner(System.in);
   String msg;
   String number;
@@ -27,21 +30,10 @@ public class Share {
       Statement ST = CN.createStatement();
 
       // 일정 노출
-      System.out.println("\n--------------------일정공유--------------------");
-      System.out.println("번호\t날짜\t\t제목\t코드");
+      banner.printbanner1("일정 공유");
       msg = "select rownum, a.p_date, a.title, a.p_id from (select * from seet_"+id+" order by p_date) a";
       RS = ST.executeQuery(msg);
-      while (RS.next() == true) {
-        int rownum = RS.getInt("rownum");
-        java.util.Date p_date = RS.getDate("p_date");
-        String title = RS.getString("title");
-        String p_id = RS.getString("p_id");
-
-        System.out.printf("%s\t", rownum);
-        System.out.printf("%s\t",p_date);
-        System.out.printf("%s\t\t",title);
-        System.out.printf("%s\n",p_id);
-      }
+      showtable.showtableCode(id);
 
       msg = "select * from seet_"+id;
       RS = ST.executeQuery(msg);

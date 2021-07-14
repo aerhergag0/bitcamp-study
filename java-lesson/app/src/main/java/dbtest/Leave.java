@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 public class Leave {
 
+  Banner banner = new Banner();
+
   Scanner keyScan = new Scanner(System.in);
   ResultSet RS;
   String msg;
@@ -18,7 +20,7 @@ public class Leave {
       Connection CN = boot.boot();
       Statement ST = CN.createStatement();
 
-      System.out.println("\n------------------회원탈퇴------------------");
+      banner.printbanner2("회원탈퇴");
 
       // 비밀번호 입력
       System.out.println("\n개인정보 보호를 위해 비밀번호를 입력해주세요. (0:뒤로가기)");

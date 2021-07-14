@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 public class Login {
 
+  Banner banner = new Banner();
+
   Scanner keyScan = new Scanner(System.in);
   String msg;
   String id;
@@ -19,7 +21,7 @@ public class Login {
       Connection CN = boot.boot();
       Statement ST = CN.createStatement();
 
-      System.out.println("\n---------------로그인---------------");
+      banner.printbanner2("로그인");
       loop : while (true) {
         System.out.println("\n아이디와 비밀번호를 입력하여 주세요. (0:뒤로가기)");
 

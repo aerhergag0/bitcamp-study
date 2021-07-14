@@ -9,9 +9,10 @@ public class Main {
     LoginFinish loginfinish = new LoginFinish();
     SignUp signup = new SignUp();
     Find find = new Find();
+    Banner banner = new Banner();
 
     while (true) {
-      System.out.println("\n-------------------일정관리 시스템---------------------");
+      banner.printbanner1("일정관리 시스템");
       System.out.println("\n1. 로그인   2. 회원가입   3. 아이디/비번 찾기   0. 종료");
       System.out.print("번호 입력 : ");
       String num = keyScan.nextLine();

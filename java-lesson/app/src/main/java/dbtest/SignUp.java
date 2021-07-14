@@ -6,6 +6,8 @@ import java.util.regex.Pattern;
 
 public class SignUp {
 
+  Banner banner = new Banner();
+
   Scanner keyScan = new Scanner(System.in);
   String msg;
   String name;
@@ -23,7 +25,7 @@ public class SignUp {
       Connection CN = boot.boot();
       Statement ST = CN.createStatement();
 
-      System.out.println("\n-------회원가입-------");
+      banner.printbanner2("회원가입");
 
       // 이름 작성
       System.out.println("\n이름을 입력하여 주세요. (0:뒤로가기)");

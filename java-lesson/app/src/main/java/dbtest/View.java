@@ -15,10 +15,10 @@ public class View {
     Delete delete = new Delete();
     Finish finish = new Finish();
     Share share = new Share();
+    Banner banner = new Banner();
     ShowTable showtable = new ShowTable();
 
-    System.out.println("\n-------개인일정--------");
-
+    banner.printbanner1("개인일정");
     try {
       Boot boot = new Boot();
       Connection CN = boot.boot();
@@ -28,6 +28,7 @@ public class View {
       showtable.showtableContents(id);
 
       while (true) {
+        banner.printbanner2("개인일정");
         System.out.println("\n메뉴를 선택하여 주세요.");
         System.out.println("\n1.일정추가\n2.일정수정\n3.일정삭제\n4.일정완료처리\n5.일정공유\n0.뒤로가기\n");
         System.out.print("메뉴 입력 : ");

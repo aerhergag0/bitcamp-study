@@ -8,6 +8,8 @@ import java.util.regex.Pattern;
 
 public class Edit {
 
+  Banner banner = new Banner();
+  ShowTable showtable = new ShowTable();
   Scanner keyScan = new Scanner(System.in);
   ResultSet RS;
   String msg;
@@ -23,7 +25,7 @@ public class Edit {
       Connection CN = boot.boot();
       Statement ST = CN.createStatement();
 
-      System.out.println("\n----------------회원정보 수정----------------");
+      banner.printbanner2("회원정보 수정");
 
       // 비밀번호 입력
       loop : while (true) {
@@ -55,7 +57,7 @@ public class Edit {
         String pw = RS.getString("pw");
         String email = RS.getString("email");
         String phone = RS.getString("phone");
-        System.out.println("\n----------회원정보----------");
+        banner.printbanner2("회원정보");
         System.out.printf("\n이름 : %s\n비밀번호 : %s\n이메일 : %s\n휴대전화번호 : %s\n", name, pw, email, phone);
       }
 
