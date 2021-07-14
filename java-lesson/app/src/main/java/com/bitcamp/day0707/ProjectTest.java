@@ -5,8 +5,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Scanner;
+import dbtest.DB_Print;
 
-public class ProjectTest {
+public class ProjectTest extends DB_Print{
   Connection CN = null;  //DB서버 연결정보
   Statement ST = null;      //명령어 생성
   ResultSet RS = null;      // 조회결과를 기억
@@ -31,13 +32,13 @@ public class ProjectTest {
     loginloop : while(true) {
       try {
         System.out.println();
-        System.out.println("1.로그인 2.회원가입 3.로그아웃 0.종료");
+        System.out.println("1.로그인 2.회원가입 3.로그아웃 4.회원 목록 0.종료");
         System.out.print(">> ");
         switch(Integer.parseInt(sc.nextLine())) {
           case 1: signIN(); break;
           case 2: signUP(); break;
           case 3: break;
-
+          case 4: db_print("Select * from ptlogin"); break;
           case 0: printbanner("End Program"); break loginloop;
         }
       } catch(Exception e) {System.out.println(e);}

@@ -102,6 +102,13 @@ public class DBTest {
         Date udate = RS.getDate("wdate");
         int ucnt = RS.getInt("cnt");
         System.out.println(ucode+"\t" + uname+"\t" + utitle+"\t" + udate+"\t" + ucnt+"\t");
+
+        System.out.println();
+        //출력테스트
+        Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:XE","system","1234");
+        DBTablePrinter.printTable(conn, "test");
+
+
       }
     } catch(Exception ex) {System.out.println("에러이유"+ex);}
   }
