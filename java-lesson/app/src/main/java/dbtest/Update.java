@@ -8,10 +8,10 @@ import java.util.regex.Pattern;
 
 public class Update {
 
+  Scanner keyScan = new Scanner(System.in);
   Banner banner = new Banner();
   ShowTable showtable = new ShowTable();
 
-  Scanner keyScan = new Scanner(System.in);
   ResultSet RS;
   String msg;
   String number;
@@ -27,7 +27,7 @@ public class Update {
       Statement ST = CN.createStatement();
 
       // 일정 노출
-      banner.printbanner2("일정 수정");
+      banner.printbanner1("일정수정");
       msg = "select rownum, a.p_date, a.title, a.p_id from (select * from seet_"+id+" order by p_date) a";
       RS = ST.executeQuery(msg);
       showtable.showtableCode(id);

@@ -1,7 +1,7 @@
 package dbtest;
 
 public class Banner {
-  final int bannerLength = 100;
+  final int bannerLength = 75;
   final char bannerChar = '-';
 
   public void printbanner1(String str) {
@@ -11,7 +11,7 @@ public class Banner {
       System.out.print(bannerChar);
     }
     System.out.println();
-    for(int i=0; i<(bannerLength-str.length())/2; i++) {
+    for(int i=0; i<(bannerLength-str.length())/2 - ((str.length())*0.6); i++) {
       System.out.print(" ");
     }
     System.out.println(str);
@@ -23,6 +23,8 @@ public class Banner {
   }
 
   public void printbanner2(String str) {
+
+    System.out.println();
     for(int i=0;i<((bannerLength-str.length())/2);i++) {
       System.out.print(bannerChar);
     }
@@ -30,6 +32,7 @@ public class Banner {
     for(int i=0;i<((bannerLength-str.length())/2);i++) {
       System.out.print(bannerChar);
     }
+    System.out.println();
     System.out.println();
   }
 }

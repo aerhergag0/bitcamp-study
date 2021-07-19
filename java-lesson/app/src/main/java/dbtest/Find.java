@@ -7,9 +7,10 @@ import java.util.Scanner;
 
 public class Find {
 
-  Banner banner = new Banner();
-
   Scanner keyScan = new Scanner(System.in);
+  Banner banner = new Banner();
+  ShowTable showtable = new ShowTable();
+
   ResultSet RS;
   String msg;
   String num;

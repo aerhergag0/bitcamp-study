@@ -1,4 +1,4 @@
-package dbtest;
+package schedule;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -6,9 +6,11 @@ import java.sql.Statement;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-public class Delete_Backup extends DB_Print{
+public class Delete {
 
   Scanner keyScan = new Scanner(System.in);
+  Banner banner = new Banner();
+  ShowTable showtable = new ShowTable();
 
   ResultSet RS;
   String msg;
@@ -27,12 +29,12 @@ public class Delete_Backup extends DB_Print{
 
 
       // 일정 노출
-      System.out.println("\n--------------------일정삭제--------------------");
+      banner.printbanner1("일정삭제");
 
       // 회원정보 출력
-
-
-      db_print("select to_char(rownum,'9999') as Numbers, to_char(a.p_date,'YY-MM-DD') as ScheduleDate, to_char(a.p_id,'9999') as CodeNum , a.title from (select * from seet_"+id+" order by p_date) a");
+      msg = "select rownum, a.p_date, a.title, a.p_id from (select * from seet_"+id+" order by p_date) a";
+      RS = ST.executeQuery(msg);
+      showtable.showtableCode(id);
 
       // 일정 존재 여부
       msg = "select * from seet_"+id;
@@ -63,7 +65,7 @@ public class Delete_Backup extends DB_Print{
           msg = "delete from seet_"+id+" where p_id = "+number;
           ST.executeUpdate(msg);
           System.out.println("\n삭제가 완료되었습니다.");
-          db_print("select to_char(rownum,'9999') as Numbers, to_char(a.p_date,'YY-MM-DD') as ScheduleDate, to_char(a.p_id,'9999') as CodeNum , a.title from (select * from seet_"+id+" order by p_date) a");
+
         } // 일정 삭제 반복문 end
 
 

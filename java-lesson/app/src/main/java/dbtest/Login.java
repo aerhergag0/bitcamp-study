@@ -7,9 +7,10 @@ import java.util.Scanner;
 
 public class Login {
 
-  Banner banner = new Banner();
-
   Scanner keyScan = new Scanner(System.in);
+  Banner banner = new Banner();
+  ShowTable showtable = new ShowTable();
+
   String msg;
   String id;
   String pw;
@@ -21,7 +22,7 @@ public class Login {
       Connection CN = boot.boot();
       Statement ST = CN.createStatement();
 
-      banner.printbanner2("로그인");
+      banner.printbanner1("로그인");
       loop : while (true) {
         System.out.println("\n아이디와 비밀번호를 입력하여 주세요. (0:뒤로가기)");
 
@@ -46,12 +47,8 @@ public class Login {
 
         // 관리자 확인
         if (id.equals("admin")) {
-          msg = "select * from profile where id='"+id+"'";
-          RS = ST.executeQuery(msg);
-          while (RS.next() == true) {
-            if (RS.getString("pw").equals(pw)) {
-              System.out.println("관리자모드 입니다."); break loop;
-            }
+          if (pw.equals("1234")) {
+            System.out.println("관리자모드로 접속합니다."); break loop;
           }
         }
 

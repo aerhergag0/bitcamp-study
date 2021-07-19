@@ -8,9 +8,9 @@ import java.util.regex.Pattern;
 
 public class Finish {
 
+  Scanner keyScan = new Scanner(System.in);
   Banner banner = new Banner();
   ShowTable showtable = new ShowTable();
-  Scanner keyScan = new Scanner(System.in);
 
   ResultSet RS;
   String msg;

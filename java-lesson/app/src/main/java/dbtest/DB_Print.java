@@ -22,7 +22,6 @@ public class DB_Print{
       DBTablePrinter.printResultSet(rs);
 
     } catch (SQLException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
   }

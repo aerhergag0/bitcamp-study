@@ -9,6 +9,8 @@ import java.util.regex.Pattern;
 public class Delete {
 
   Scanner keyScan = new Scanner(System.in);
+  Banner banner = new Banner();
+  ShowTable showtable = new ShowTable();
 
   ResultSet RS;
   String msg;
@@ -18,8 +20,6 @@ public class Delete {
   String p_date;
   boolean check;
 
-  Banner banner = new Banner();
-  ShowTable showtable = new ShowTable();
 
   public void delete(String id) {
     try {
@@ -27,14 +27,14 @@ public class Delete {
       Connection CN = boot.boot();
       Statement ST = CN.createStatement();
 
-      // 일정 목록 출력
-      // System.out.println("\n--------------------일정삭제--------------------");
+
+      // 일정 노출
       banner.printbanner1("일정삭제");
+
+      // 회원정보 출력
       msg = "select rownum, a.p_date, a.title, a.p_id from (select * from seet_"+id+" order by p_date) a";
       RS = ST.executeQuery(msg);
       showtable.showtableCode(id);
-
-      //db_print("select to_char(rownum,'9999') as Numbers, to_char(a.p_date,'YY-MM-DD') as ScheduleDate, to_char(a.p_id,'9999') as CodeNum , a.title from (select * from seet_"+id+" order by p_date) a");
 
       // 일정 존재 여부
       msg = "select * from seet_"+id;
@@ -66,10 +66,9 @@ public class Delete {
           ST.executeUpdate(msg);
           System.out.println("\n삭제가 완료되었습니다.");
 
-          System.out.println();
-
-          //db_print("select to_char(rownum,'9999') as Numbers, to_char(a.p_date,'YY-MM-DD') as ScheduleDate, to_char(a.p_id,'9999') as CodeNum , a.title from (select * from seet_"+id+" order by p_date) a");
         } // 일정 삭제 반복문 end
+
+
       }
     }catch (Exception e) {System.out.println(e);} // try-catch end
   } // delete method end

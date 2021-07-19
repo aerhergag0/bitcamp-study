@@ -117,4 +117,9 @@ public class ShowTable {
       CN.close();
     } catch(Exception e) {}
   } // Method End
+
+  //회원 목록 테이블
+  public void showProfileTable() {
+
+  }
 } //class End

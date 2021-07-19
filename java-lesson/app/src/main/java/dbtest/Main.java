@@ -9,7 +9,9 @@ public class Main {
     LoginFinish loginfinish = new LoginFinish();
     SignUp signup = new SignUp();
     Find find = new Find();
+
     Banner banner = new Banner();
+    ShowTable showtable = new ShowTable();
 
     while (true) {
       banner.printbanner1("일정관리 시스템");

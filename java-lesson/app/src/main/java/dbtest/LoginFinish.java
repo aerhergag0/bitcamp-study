@@ -12,8 +12,9 @@ public class LoginFinish extends DB_Print{
   Edit edit = new Edit();
   Leave leave = new Leave();
   Manager manager = new Manager();
+  Notice notice = new Notice();
   Banner banner = new Banner();
-
+  ShowTable showtable = new ShowTable();
 
   public void loginfinish() {
     loop : while (true) {
@@ -22,15 +23,18 @@ public class LoginFinish extends DB_Print{
       if (id.equals("0")) { break; }
       if (id.equals("admin")) { manager.manager(); break;}
 
+      notice.view_count(id);
+      notice.s_view_count(id);
+
       while (true) {
         banner.printbanner1("메뉴");
+        System.out.println("[날짜별 일정 개수]");
         System.out.println();
-        //.
-        // 
-        db_print("SELECT to_char(a.p_date,'YY-MM-DD') AS Schedule , to_char(COUNT(a.p_date),'999') AS DateCount FROM (SELECT * FROM seet_"+id+" order by p_date) a GROUP BY a.p_date");
+
+        db_print("SELECT to_char(a.p_date,'YY-MM-DD') AS Schedule , to_char(COUNT(a.p_date),'999') AS Count FROM (SELECT * FROM seet_"+id+" order by p_date) a GROUP BY a.p_date");
 
         System.out.println("\n메뉴를 선택하여 주세요.");
-        System.out.println("\n1.개인일정\n2.완료일정\n3.공유일정\n4.회원정보수정\n5.회원탈퇴\n0.로그아웃\n");
+        System.out.println("\n1.개인일정  2.완료일정  3.공유일정  4.회원정보수정  5.회원탈퇴  0.로그아웃\n");
         System.out.print("메뉴 입력 : ");
         String num = keyScan.nextLine();
         if (num.equals("1")) {view.view(id);}
