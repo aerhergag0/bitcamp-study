@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>puzzle</title>
+    <style>
+
+    </style>
+    <script src="puzzle.js"></script>
+</head>
+<body>
+    <font size=7 >puzzle</font><p></p>
+    <input type="button" value="START" onClick="start()">
+    <input type="button" value="RESET" onClick="">
+
+    <script type="text/javascript">
+        imgsource = new Array("1.gif","2.gif","3.gif","4.gif","5.gif","6.gif","7.gif","8.gif","9.gif","10.gif","11.gif","12.gif","13.gif","14.gif","15.gif","blink.gif");
+
+        for(i=0; i<16; i++) {
+            document.write("<img src=" + imgsource[i] + "border" = 1 onClick='move(" + i + ")'>");
+            if (((i+1)%4)==0)
+                document.write("<br>");
+        }
+    </script>
+
+</body>
+</html>

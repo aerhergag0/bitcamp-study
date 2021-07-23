@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>puzzle</title>
+    <style>
+
+    </style>
+    <script type="text/javascript">
+    var counter = new Array( );
+    var imgsource1 = new Array("1.gif","2.gif","3.gif","4.gif","5.gif","6.gif","7.gif","8.gif",
+    "9.gif","10.gif","11.gif","12.gif","13.gif","14.gif","15.gif","blink.gif");
+    var blank = 0;
+    var temp = 1;
+    var moveaudio = new Audio("move.mp3");
+
+    function start( ) {
+        for(a=0; a<16; a++) {
+            counter[a] = Math.round(Math.random()*15);
+            for(b=0; b<a; b++) {
+                if(counter[a] == counter[b]) 
+                {a--;}
+                
+            }
+        }
+        mix( );
+    } // start function end
+
+    function mix( ) {
+        for(i=0; i<16; i++) {
+            document.images[i].src = imgsource1[counter[i]];
+            if(counter[i]==15) 
+            {blank=i;}
+        }
+    } // mix function end
+
+    function move(k) {
+        var gap = Math.abs(blank - k) 
+        if (gap == 1 || gap == 4) {
+            temp = counter[k];
+            counter[k] = counter[blank];
+            counter[blank] = temp;
+            moveaudio.play();
+            mix();
+        }
+    } // move function end
+    </script>
+</head>
+<body>
+    <font size=7 >PUZZLE</font><p></p>
+    <input type="button" value="START" onClick="start( )" Style="font-size:24pt; this.onclick=null;">
+    <input type="button" value="RESET" onClick="start( )" Style="font-size:24pt;"><p></p>
+
+    <script type="text/javascript">
+		imgsource = new Array("1.gif", "2.gif", "3.gif", "4.gif", "5.gif", "6.gif", "7.gif", "8.gif",
+				  "9.gif", "10.gif", "11.gif", "12.gif", "13.gif", "14.gif", "15.gif", "16.gif") ;
+	
+		for (i =0 ; i<16 ; i++){
+		  document.write("<img src=" + imgsource[i] + " border = 1 onClick = 'move(" + i + ")'>") ;
+		  if (((i+1)%4)==0) document.write("<br>") ;
+		}
+	</script>
+
+</body>
+</html>

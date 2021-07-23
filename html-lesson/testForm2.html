@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> </title>
     <style>
-        * {font-size: 15pt;}
+
         a { font-size: 26pt; text-decoration: none; color: blue;}
         a:hover { color:green; font-size:36pt;}
     </style>
@@ -36,25 +36,19 @@
         if(b == null || b=="") {
             alert("제목 데이터를 입력하세요")
         }
-    function printValues() {
-        c = document.myform.code.value;
-        d = document.myform.title.value;
-        
-        alert("c");
-    }
     }
 </script>
 
 </head>
 <body>
-    <font face="돋움체"><b>화면 만들기</b></font><br>
-    <font color="red" >*</font><font font-size="1" > 필수 입력사항</font> <p></p>
+    <font face="굴림체"><b>화면 만들기</b></font><p>
+    <font color="red" >*</font><font> 필수 입력사항</font> <p></p>
     <form name="myform">
         <font color="red">*</font> 코드: <input type="text" name="code" size=10><br>
-        &nbsp;&nbsp;제목: <input type="text" name="title" value="snow" size=10><br>
-        <input type="button" value="저 장" onclick = "javascript:nullCheck()">
-        <input type="button" value="취 소">
-        <input type="button" value="???" onclick = printValues()>
+        &nbsp;&nbsp;제목: <input type="text" name="title" value="snow" size=10><p></p>
+        <input type="button" value="저장" onclick = "javascript:nullCheck()">
+        <input type="button" value="취소">
+
     </form>
 
 
